@@ -80,6 +80,8 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 # =============================================================================
 # Database
 # =============================================================================
+import dj_database_url
+
 DATABASES = {'default': {}}
 
 db_from_env = dj_database_url.config()
