@@ -1,0 +1,30 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+
+{% block content %}
+
+<section class="readings">
+    <header>
+        <h1>This is the Readings Page</h1>
+    </header>
+    <div>
+        <ul>
+            {% for book in object_list %}
+                <li><a href="{% url 'main_app:book-detail' book.pk %}">{{ book.title }}</a> - {{ book.author }}<br/>
+                {{ book.summary }} <br> 
+                {% if book.coverimage %} 
+                    <img src="{{book.coverimage.url}}" width="25%" alt="Image Not Found"> 
+                {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+
+
+{% endblock %}
+

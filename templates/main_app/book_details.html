@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'main_app/book_details.CSS' %}">
+
+<main class="bookdetail">
+    <section>
+        <Header>
+            <h1>{{ book.title }}</h1>
+        </Header>
+            <small>By: {{ book.author }}</small>
+            <h3>Book Summary:</h3>
+            <p>{{ book.summary }}</p>
+            {% if book.coverimage %} 
+                <img src="{{book.coverimage.url}}" width="25%" alt="Image Not Found"> 
+            {% endif %}   
+            <h4>My Thoughts:</h4>
+            <dl>
+                <dt>
+                <small>Read Date: {{ book.read_date }}</small>
+                </dt>
+                <dd>
+                <p>{{ book.my_thoughts }}</p>
+                </dd>
+            </dl>
+            
+    </section>
+
+    <a href="{% url 'main_app:readings' %}" >Back</a>
+</main>
+{% endblock %}

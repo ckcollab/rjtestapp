@@ -1,0 +1,8 @@
+.bookdetail header {
+font-style:italic;
+}
+
+.bookdetail p{
+    outline: solid 1px gray;
+    padding: 10%;
+}

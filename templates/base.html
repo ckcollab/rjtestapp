@@ -1,0 +1,87 @@
+
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static '/main_app/master.CSS' %}">
+
+    <title>Regan Jones</title>
+
+</head>
+
+<body>
+
+    <!-- SITE HEADER -->
+    <header>
+      <div id="header1">  
+          <h1>Regan Jones</p>
+          <img id="profilepic" src="{% static 'main_app/IMG_5687.jpeg' %}" class="img-fluid" alt="Profile Picture" />
+          <nav>
+            <div class="group" role="group" aria-label="Basic example">
+            <a href="{% url 'main_app:readings' %}"> <button type="button">Readings</button></a>
+            </div>
+          </nav>
+      </div>
+    </header>
+    {% block content %}
+
+    
+    {% endblock %}
+
+
+
+  <!-- SITE FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-6">
+          <h6>About</h6>
+          <p class="text-justify"> This is my personal page where I share updates on my adventures, projects and life. 
+          <br> This website is an exercise in discipline . It is meant to be a repository where I can share thoughts and doings. The intention is to scale my expression. All while, building out a skill set that can support future endeavors.</p>
+          <aside><p><small> Any one thing is easy, it is the order of operations that which is difficult.</small></p></aside> 
+          
+        </div>
+
+        <div class="col-xs-6 col-md-3">
+          <h6>Categories</h6>
+          <ul class="footer-links">
+            <li><a href="{% url 'main_app:readings' %}">Readings</a></li>
+          </ul>
+        </div>
+
+        <div class="col-xs-6 col-md-3">
+          <h6>Quick Links</h6>
+          <ul class="footer-links">
+            <li><a href="#">Privacy Policy</a></li>   
+          </ul>   
+        </div>
+      </div>
+      <hr>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-sm-6 col-xs-12">
+          <p class="copyright-text">Copyright &copy; 2022 All Rights Reserved by 
+       <a href="#">Regan</a>.
+          </p>
+        </div>
+
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <ul class="social-icons">
+            <li><a class="facebook" href="https://www.facebook.com/regan.jones.520"><i class="fa fa-facebook"></i></a></li>
+            <li><a class="linkedin" href="https://www.linkedin.com/in/regan-s-jones/"><i class="fa fa-linkedin"></i></a></li>   
+          </ul>
+        </div>
+      </div>
+    </div>
+</footer>
+  </footer>
+</body>
+</html>
