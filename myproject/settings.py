@@ -77,19 +77,27 @@ TEMPLATES = [
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
 
+# =============================================================================
 # Database
-# https://docs.djangoproject.com/en/4.1/ref/settings/#databases
+# =============================================================================
+DATABASES = {'default': {}}
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'myproject',
-	'USER': 'myprojectuser',
-	'PASSWORD': 'password',
-	'HOST': 'localhost',
-	'PORT': '',
+db_from_env = dj_database_url.config()
+if db_from_env:  # pragma: no cover
+    DATABASES['default'].update(db_from_env)
+else:  # pragma: no cover
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': os.environ.get('DB_NAME', 'postgres'),
+            'USER': os.environ.get('DB_USERNAME', 'postgres'),
+            'PASSWORD': os.environ.get('DB_PASSWORD', 'postgres'),
+            'HOST': os.environ.get('DB_HOST', 'db'),
+            'PORT': 5432,
+        }
     }
-}
+
+DATABASES["default"]["CONN_MAX_AGE"] = 500
 
 
 # Password validation
